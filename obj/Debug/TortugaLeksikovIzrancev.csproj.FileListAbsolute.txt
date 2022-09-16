@@ -1,0 +1,17 @@
+C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\bin\Debug\TartugaLeksikovIzrancev.exe.config
+C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\bin\Debug\TartugaLeksikovIzrancev.exe
+C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\bin\Debug\TartugaLeksikovIzrancev.pdb
+C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\TortugaLeksikovIzrancev.csproj.AssemblyReference.cache
+C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\Windows\MainPageWindow.g.cs
+C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\App.g.cs
+C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\TartugaLeksikovIzrancev_MarkupCompile.cache
+C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\TartugaLeksikovIzrancev_MarkupCompile.lref
+C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\Windows\MainPageWindow.baml
+C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\TartugaLeksikovIzrancev.g.resources
+C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\TartugaLeksikovIzrancev.Properties.Resources.resources
+C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\TortugaLeksikovIzrancev.csproj.GenerateResource.cache
+C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\TortugaLeksikovIzrancev.csproj.CoreCompileInputs.cache
+C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\TartugaLeksikovIzrancev.exe
+C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\TartugaLeksikovIzrancev.pdb
+C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\Pages\StartPage.g.cs
+C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\Pages\StartPage.baml
