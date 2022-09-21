@@ -9,6 +9,118 @@
       Title="StartPage">
 
     <Grid>
-        <Border x:Name="Geese" Background="Pink"/>
+        <!--<Border x:Name="Geese" Background="Pink"/>-->
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Background="White" 
+                Grid.ColumnSpan="4" 
+                Grid.RowSpan="9"/>
+
+        <TextBlock Text="Tortuga's" 
+                   Grid.Column="1"
+                   Grid.ColumnSpan="2"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Center"
+                   FontSize="30"
+                   Margin="0 10 0 0"/>
+
+        <TextBlock Text="Выберите столик" 
+                   Grid.Column="1"
+                   Grid.ColumnSpan="2"
+                   Grid.Row="1"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   FontSize="30"
+                   Margin="0 0 0 0"/>
+
+
+        <ListView x:Name="lvTables"
+                  Grid.Row="2"
+                  Grid.Column="1"
+                  Grid.ColumnSpan="2"
+                  Grid.RowSpan="6"
+                  BorderBrush="{x:Null}"
+                  >
+
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+
+                    <Grid Width="60"
+                          Height="60"
+                          MouseDown="Grid_MouseDown"
+                          >
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Border Background="#393E40"
+                                CornerRadius="15"
+                                Grid.ColumnSpan="3"
+                                Grid.RowSpan="12"
+                                />
+
+                        <TextBlock Text="{Binding IDTable}"
+                   Grid.ColumnSpan="3"
+                   Grid.RowSpan="3"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="40"
+                   Foreground="White"
+                   />
+
+
+                        <!--<Border 
+                                Grid.RowSpan="6"
+                                BorderThickness="1"
+                                BorderBrush="{x:Null}"
+                                Margin="10 5 5 5">
+
+            <Image>
+                <Image.Source>
+                    <Binding Path="ProductImage">
+
+                    </Binding>
+                </Image.Source>
+            </Image>
+        </Border>-->
+
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+
     </Grid>
 </Page>

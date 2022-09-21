@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TartugaLeksikovIzrancev.Classes;
+using TartugaLeksikovIzrancev.EF;
 
 namespace TartugaLeksikovIzrancev.Pages
 {
@@ -23,6 +25,20 @@ namespace TartugaLeksikovIzrancev.Pages
         public StartPage()
         {
             InitializeComponent();
+
+            lvTables.ItemsSource = AppData.Context.RestourantTable.ToList();
+        }
+
+
+        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (sender is Grid obj)
+            {
+                if (obj.DataContext is EF.RestourantTable table)
+                {
+                    PageController.MainFrame.Navigate(new MenuPage(table));
+                }
+            }
         }
     }
 }

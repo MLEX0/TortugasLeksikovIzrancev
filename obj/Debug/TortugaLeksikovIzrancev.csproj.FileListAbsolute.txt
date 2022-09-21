@@ -15,3 +15,14 @@ C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\TartugaLeksikovIzr
 C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\TartugaLeksikovIzrancev.pdb
 C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\Pages\StartPage.g.cs
 C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\Pages\StartPage.baml
+C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\bin\Debug\EntityFramework.dll
+C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\bin\Debug\EntityFramework.xml
+C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\TartugaLeksikovIzrancev_Content.g.cs
+C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\TortugaLeksikovIzrancev.csproj.CopyComplete
+C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\Windows\Window1.g.cs
+C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\Windows\Window1.baml
+C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\Pages\MenuPage.g.cs
+C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\Pages\MenuPage.baml
