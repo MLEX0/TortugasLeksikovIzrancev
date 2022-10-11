@@ -24,12 +24,80 @@ namespace TartugaLeksikovIzrancev.Pages
         public MenuPage(EF.RestourantTable table)
         {
             InitializeComponent();
-            txtTable.Text = $"{table.IDTable}";
-        }
+            txtTable.Text = $"Ваш столик: {table.IDTable}";
+            lvCategory.SelectedIndex = 0;
 
+            Filter();
+        }
+        public void Filter()
+        {
+            List<EF.Product> products = new List<EF.Product>();
+            List<EF.Category> categories = new List<EF.Category>();
+            categories = AppData.Context.Category.ToList();
+            lvCategory.ItemsSource = categories;
+
+
+            switch (lvCategory.SelectedIndex)
+            {
+                case 0:
+                    {
+                        products = AppData.Context.Product.Where(i => i.IDCategory == 1).ToList();
+                        break;
+                    }
+                case 1:
+                    {
+                        products = AppData.Context.Product.Where(i => i.IDCategory == 2).ToList();
+                        break;
+                    }
+                case 2:
+                    {
+                        products = AppData.Context.Product.Where(i => i.IDCategory == 3).ToList();
+                        break;
+                    }
+                case 3:
+                    {
+                        products = AppData.Context.Product.Where(i => i.IDCategory == 4).ToList();
+                        break;
+                    }
+                case 4:
+                    {
+                        products = AppData.Context.Product.Where(i => i.IDCategory == 5).ToList();
+                        break;
+                    }
+                default:
+                    {
+                        products = AppData.Context.Product.ToList();
+                        break;
+                    }
+            }
+
+            lvMenu.ItemsSource = products;
+        }
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             PageController.MainFrame.Navigate(new StartPage());
+        }
+
+        private void btnGoBasket_Click(object sender, RoutedEventArgs e)
+        {
+           
+                PageController.MainFrame.Navigate(new BasketPage());
+            
+        }
+
+        private void lvMenu_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if(lvMenu.SelectedValue is EF.Product)
+            {
+                var prod = lvMenu.SelectedItem as EF.Product;
+                PageController.MainFrame.Navigate(new MoreDetailsPage(prod));
+
+            }
+        }
+
+        private void lvCategory_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Filter();
         }
     }
 }

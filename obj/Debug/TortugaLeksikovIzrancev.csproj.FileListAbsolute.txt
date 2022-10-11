@@ -26,3 +26,7 @@ C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\Windows\Window1.g.
 C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\Windows\Window1.baml
 C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\Pages\MenuPage.g.cs
 C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\Pages\MenuPage.baml
+C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\Pages\BasketPage.g.cs
+C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\Pages\BasketPage.baml
+C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\Pages\MoreDetailsPage.g.cs
+C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\Pages\MoreDetailsPage.baml

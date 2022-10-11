@@ -18,28 +18,22 @@ using TartugaLeksikovIzrancev.EF;
 namespace TartugaLeksikovIzrancev.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для StartPage.xaml
+    /// Логика взаимодействия для MoreDetailsPage.xaml
     /// </summary>
-    public partial class StartPage : Page
+    public partial class MoreDetailsPage : Page
     {
-        public StartPage()
+        public MoreDetailsPage(EF.Product product)
         {
             InitializeComponent();
-
-            lvTables.ItemsSource = AppData.Context.RestourantTable.ToList();
+            tbName.Text = product.ProductName;
+            tbDescription.Text = product.Description;
+            tbComposition.Text = "Состав:"+product.Composition;
         }
 
-
-        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            if (sender is Grid obj)
-            {
-                if (obj.DataContext is EF.RestourantTable table)
-                {
-                    GlobalInformation.IDTable = table;
-                    PageController.MainFrame.Navigate(new MenuPage(table));
-                }
-            }
+            PageController.MainFrame.Navigate(new MenuPage(GlobalInformation.IDTable));
+
         }
     }
 }
