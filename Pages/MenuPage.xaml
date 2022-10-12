@@ -26,8 +26,7 @@
         <WrapPanel 
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center">
-            <TextBlock x:Name="txtTable"
-                   
+            <TextBlock x:Name="txtTable"      
                    >
 
             </TextBlock>
@@ -53,12 +52,15 @@
                   Grid.RowSpan="3"
                   Grid.Column="0"
                   Grid.ColumnSpan="3"
+                  MouseRightButtonDown="lvMenu_MouseRightButtonDown"
                   MouseDoubleClick="lvMenu_MouseDoubleClick"
                   >
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Наименование" Width="100" DisplayMemberBinding="{Binding ProductName}"></GridViewColumn>
                     <GridViewColumn Header="Цена" Width="100" DisplayMemberBinding="{Binding Cost}"></GridViewColumn>
+                    <GridViewColumn Header="Вес (г)" Width="100" DisplayMemberBinding="{Binding Weight}"></GridViewColumn>
+
                 </GridView>
             </ListView.View>
         </ListView>

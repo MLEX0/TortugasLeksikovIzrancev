@@ -6,10 +6,12 @@
       xmlns:local="clr-namespace:TartugaLeksikovIzrancev.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
+      
       Title="BasketPage">
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -44,11 +46,12 @@
 
         </TextBlock>
 
-        <ListView x:Name="lvMenu"
+        <ListView x:Name="lvOrder"
                   Grid.Row="1"
-                  Grid.RowSpan="3"
+                  Grid.RowSpan="4"
                   Grid.Column="0"
                   Grid.ColumnSpan="3"
+                  KeyDown="lvOrder_KeyDown"
                   >
             <ListView.View>
                 <GridView>
@@ -59,23 +62,53 @@
         </ListView>
 
 
-        <ListView x:Name="lvCategory"
-                  Grid.Row="1"
-                  Grid.RowSpan="2"
-                  Grid.Column="4">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Наименование" Width="100" DisplayMemberBinding="{Binding NameCategory}"></GridViewColumn>
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <TextBlock x:Name="tbTable"
+                   Grid.Column="3"
+                   Grid.Row="1"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   TextAlignment="Center"
+                   TextWrapping="Wrap"
+                   Text="Ваш столик"
+                   FontSize="18">
+            
+        </TextBlock>
 
+        <TextBlock x:Name="tbPrice"
+                   Grid.Column="3"
+                   Grid.Row="2"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   TextAlignment="Center"
+                   TextWrapping="Wrap"
+                   Text="Цена"
+                   FontSize="18">
+
+        </TextBlock>
+
+        <StackPanel Grid.Row="3"
+                    Grid.Column="3"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    >
+            <RadioButton x:Name="rbMoney"
+                         Content="Наличными"
+                         IsChecked="True"
+                         FontSize="18">
+                
+            </RadioButton>
+            <RadioButton Name="rbCard"
+                         Content="Картой"
+                         FontSize="18">
+                
+            </RadioButton>
+        </StackPanel>    
         <Button x:Name="btnGoBasket"
-            Grid.Row="3"
+            Grid.Row="4"
                 Grid.Column="3"
                 Width="110"
                 Height="40"
-                Content="Оформить заказ" >
+                Content="Оформить заказ" Click="btnGoBasket_Click" >
 
         </Button>
     </Grid>

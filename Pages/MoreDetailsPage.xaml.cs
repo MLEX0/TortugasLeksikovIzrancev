@@ -22,18 +22,40 @@ namespace TartugaLeksikovIzrancev.Pages
     /// </summary>
     public partial class MoreDetailsPage : Page
     {
+        EF.Product prod;
         public MoreDetailsPage(EF.Product product)
         {
             InitializeComponent();
             tbName.Text = product.ProductName;
             tbDescription.Text = product.Description;
             tbComposition.Text = "Состав:"+product.Composition;
+            prod = product;
+
+            //проверка на наличие ссылки на изображение
+            if (product.MainImage != null)
+            {
+                //загрузка изображения в приложение
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(product.MainImage, UriKind.Absolute);
+                bitmap.EndInit();
+
+                ImageProd.Source = bitmap;
+            }
+           
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             PageController.MainFrame.Navigate(new MenuPage(GlobalInformation.IDTable));
 
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+                GlobalInformation.ListOfOrder.Add(prod);
+                MessageBox.Show(prod.ProductName + " Добавлено в корзину");
+            
         }
     }
 }

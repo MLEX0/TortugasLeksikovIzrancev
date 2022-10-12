@@ -7,9 +7,10 @@ using TartugaLeksikovIzrancev.Classes;
 
 namespace TartugaLeksikovIzrancev.Classes
 {
-    public class GlobalInformation
+    //Класс с различной глобальной информацией
+    public static class GlobalInformation
     {
         public static EF.RestourantTable IDTable { get; set; }
-       
+        public static List<EF.Product> ListOfOrder = new List<EF.Product>();
     }
 }

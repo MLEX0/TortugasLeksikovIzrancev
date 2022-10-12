@@ -7,6 +7,7 @@ using TartugaLeksikovIzrancev.EF;
 
 namespace TartugaLeksikovIzrancev.Classes
 {
+    //Класс для работы с базой данных
     class AppData
     {
         public static Entities Context { get; } = new Entities();

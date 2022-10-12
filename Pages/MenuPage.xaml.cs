@@ -21,6 +21,7 @@ namespace TartugaLeksikovIzrancev.Pages
     /// </summary>
     public partial class MenuPage : Page
     {
+
         public MenuPage(EF.RestourantTable table)
         {
             InitializeComponent();
@@ -29,6 +30,8 @@ namespace TartugaLeksikovIzrancev.Pages
 
             Filter();
         }
+
+        //Метод Фильрации Продуктов
         public void Filter()
         {
             List<EF.Product> products = new List<EF.Product>();
@@ -36,7 +39,7 @@ namespace TartugaLeksikovIzrancev.Pages
             categories = AppData.Context.Category.ToList();
             lvCategory.ItemsSource = categories;
 
-
+            //выборка по категориям
             switch (lvCategory.SelectedIndex)
             {
                 case 0:
@@ -80,14 +83,13 @@ namespace TartugaLeksikovIzrancev.Pages
 
         private void btnGoBasket_Click(object sender, RoutedEventArgs e)
         {
-           
-                PageController.MainFrame.Navigate(new BasketPage());
+            PageController.MainFrame.Navigate(new BasketPage());
             
         }
 
         private void lvMenu_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if(lvMenu.SelectedValue is EF.Product)
+            if(lvMenu.SelectedItem is EF.Product)
             {
                 var prod = lvMenu.SelectedItem as EF.Product;
                 PageController.MainFrame.Navigate(new MoreDetailsPage(prod));
@@ -98,6 +100,17 @@ namespace TartugaLeksikovIzrancev.Pages
         private void lvCategory_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             Filter();
+        }
+
+        //Метод добавления продукта в корзину 
+        private void lvMenu_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if(lvMenu.SelectedItem is EF.Product)
+            {
+                var prod = lvMenu.SelectedItem as EF.Product;
+                GlobalInformation.ListOfOrder.Add(prod);
+                MessageBox.Show(prod.ProductName + " Добавлено в корзину");
+            }
         }
     }
 }

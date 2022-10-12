@@ -7,6 +7,7 @@ using System.Windows.Controls;
 
 namespace TartugaLeksikovIzrancev.Classes
 {
+    //Класс для работы с страницами
     public class PageController
     {
        public static Frame MainFrame { get; set; } = new Frame();

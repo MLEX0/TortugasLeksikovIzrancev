@@ -25,11 +25,50 @@ namespace TartugaLeksikovIzrancev.Pages
         public BasketPage()
         {
             InitializeComponent();
+            Refresh();
         }
 
+        //Метод для обновления ListView 
+        public void Refresh()
+        {
+            lvOrder.ItemsSource = null;
+            lvOrder.ItemsSource = GlobalInformation.ListOfOrder;
+            tbTable.Text = "Ваш столик: " + GlobalInformation.IDTable.IDTable;
+            tbPrice.Text = "Итоговая стоимость: " + totalPrice();
+        }
+
+        //Метод Высчитывающий итоговую стоимость заказа
+        public string totalPrice()
+        {
+            decimal totalCost = 0;
+            foreach(EF.Product prod in GlobalInformation.ListOfOrder)
+            {
+                totalCost += prod.Cost;
+            }
+            return Convert.ToString(totalCost);
+        }
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             PageController.MainFrame.Navigate(new MenuPage(GlobalInformation.IDTable));
+        }
+
+        //мутод удаляющий запись ил ListView при нажатии Delete
+        private void lvOrder_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Delete)
+            {
+                if(lvOrder.SelectedItem is EF.Product)
+                {
+                    var prod = lvOrder.SelectedItem as EF.Product;
+                    GlobalInformation.ListOfOrder.Remove(prod);
+                    Refresh();
+                }
+            }
+        }
+
+        private void btnGoBasket_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Сделаем вид, что заказ оформлен, ок?");
         }
     }
 }
