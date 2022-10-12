@@ -27,7 +27,6 @@ namespace TartugaLeksikovIzrancev.Pages
             InitializeComponent();
             txtTable.Text = $"Ваш столик: {table.IDTable}";
             lvCategory.SelectedIndex = 0;
-
             Filter();
         }
 
@@ -84,7 +83,6 @@ namespace TartugaLeksikovIzrancev.Pages
         private void btnGoBasket_Click(object sender, RoutedEventArgs e)
         {
             PageController.MainFrame.Navigate(new BasketPage());
-            
         }
 
         private void lvMenu_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -93,7 +91,6 @@ namespace TartugaLeksikovIzrancev.Pages
             {
                 var prod = lvMenu.SelectedItem as EF.Product;
                 PageController.MainFrame.Navigate(new MoreDetailsPage(prod));
-
             }
         }
 
@@ -106,6 +103,16 @@ namespace TartugaLeksikovIzrancev.Pages
         private void lvMenu_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             if(lvMenu.SelectedItem is EF.Product)
+            {
+                var prod = lvMenu.SelectedItem as EF.Product;
+                GlobalInformation.ListOfOrder.Add(prod);
+                MessageBox.Show(prod.ProductName + " Добавлено в корзину");
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (lvMenu.SelectedItem is EF.Product)
             {
                 var prod = lvMenu.SelectedItem as EF.Product;
                 GlobalInformation.ListOfOrder.Add(prod);

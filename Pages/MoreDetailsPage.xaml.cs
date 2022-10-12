@@ -53,8 +53,8 @@ namespace TartugaLeksikovIzrancev.Pages
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-                GlobalInformation.ListOfOrder.Add(prod);
-                MessageBox.Show(prod.ProductName + " Добавлено в корзину");
+            GlobalInformation.ListOfOrder.Add(prod);
+            MessageBox.Show(prod.ProductName + " Добавлено в корзину");
             
         }
     }

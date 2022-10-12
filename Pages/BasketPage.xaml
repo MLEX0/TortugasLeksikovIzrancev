@@ -53,12 +53,55 @@
                   Grid.ColumnSpan="3"
                   KeyDown="lvOrder_KeyDown"
                   >
-            <ListView.View>
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Height="180"
+                          Width="160"
+          
+                          Background="LightGray">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Grid.RowSpan="2"
+                               Grid.ColumnSpan="2">
+                            <Image.Source>
+                                <Binding Path="MainImage"></Binding>
+                            </Image.Source>
+
+                        </Image>
+                        <TextBlock Grid.Row="2"
+                                   Grid.ColumnSpan="2"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   TextWrapping="Wrap"
+                                   FontSize="12"
+                                   Text="{Binding ProductName}">
+
+                        </TextBlock>
+                      
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <!--<ListView.View>
                 <GridView>
                     <GridViewColumn Header="Наименование" Width="100" DisplayMemberBinding="{Binding ProductName}"></GridViewColumn>
                     <GridViewColumn Header="Цена" Width="100" DisplayMemberBinding="{Binding Cost}"></GridViewColumn>
                 </GridView>
-            </ListView.View>
+            </ListView.View>-->
         </ListView>
 
 
