@@ -44,17 +44,16 @@
                    VerticalAlignment="Center"
                    Text="Меню"
                    FontSize="30">
-            
+
         </TextBlock>
 
         <ListView x:Name="lvMenu"
-                  Grid.Row="1"
-                  Grid.RowSpan="3"
+                  Grid.RowSpan="4"
                   Grid.Column="0"
                   Grid.ColumnSpan="3"
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                   MouseRightButtonDown="lvMenu_MouseRightButtonDown"
-                  MouseDoubleClick="lvMenu_MouseDoubleClick"
+                  MouseDoubleClick="lvMenu_MouseDoubleClick" Margin="-5,110,5,2.778"
                   >
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -66,7 +65,7 @@
                     <Grid Height="180"
                           Width="160"
           
-                          Background="LightGray">       
+                          Background="LightGray">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
@@ -86,6 +85,14 @@
                             </Image.Source>
 
                         </Image>
+                        <TextBlock Grid.Row="3"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   TextAlignment="Center"
+                                   FontSize="14"
+                                   Text="{Binding Cost}">
+                            
+                        </TextBlock>
                         <TextBlock Grid.Row="2"
                                    Grid.ColumnSpan="2"
                                    HorizontalAlignment="Left"
@@ -104,7 +111,7 @@
                                 VerticalContentAlignment="Center"
                                 Margin=" 3"
                                 Click="Button_Click"
-                                >   
+                                >
 
                         </Button>
                     </Grid>
@@ -144,5 +151,5 @@
 
         </Button>
     </Grid>
-   
+
 </Page>

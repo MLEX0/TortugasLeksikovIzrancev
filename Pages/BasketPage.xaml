@@ -49,6 +49,7 @@
         <ListView x:Name="lvOrder"
                   Grid.Row="1"
                   Grid.RowSpan="4"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                   Grid.Column="0"
                   Grid.ColumnSpan="3"
                   KeyDown="lvOrder_KeyDown"
@@ -75,6 +76,14 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
+                        <Button Grid.Row="3"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Content="X"
+                                FontSize="18"
+                                Click="Button_Click">
+
+                        </Button>
 
                         <Image Grid.RowSpan="2"
                                Grid.ColumnSpan="2">
@@ -82,6 +91,7 @@
                                 <Binding Path="MainImage"></Binding>
                             </Image.Source>
 
+                            
                         </Image>
                         <TextBlock Grid.Row="2"
                                    Grid.ColumnSpan="2"
@@ -92,7 +102,40 @@
                                    Text="{Binding ProductName}">
 
                         </TextBlock>
-                      
+                        <WrapPanel Grid.Row="3"
+                                    Grid.ColumnSpan="2"
+                                     HorizontalAlignment="Right"
+                                   VerticalAlignment="Center">
+                            <Button x:Name="btnMinus"
+                                    Width="30"
+                                    Content="-"
+                                    FontSize="18" 
+                                    Margin=" 3"
+                                    Click="btnMinus_Click"
+                                    >
+
+                            </Button>
+                            <TextBlock x:Name="tbCount"
+                                    Width="30"
+                                    Text="1"
+                                    TextAlignment="Center"
+                                    FontSize="18" 
+                                    Margin=" 3"
+                                    >
+
+                            </TextBlock>
+                            <Button x:Name="btnPlus"
+                                    Width="30"
+                                    Content="+"
+                                    FontSize="18" 
+                                    Margin=" 3"
+                                    Click="btnPlus_Click"
+                                    >
+
+                            </Button>
+
+                        </WrapPanel>
+
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

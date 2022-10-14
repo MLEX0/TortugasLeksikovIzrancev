@@ -35,16 +35,37 @@
                    Text="{Binding ProductName}">
             
         </TextBlock>
-        <Button Grid.Column="2"
-                Grid.Row="3"
+        <WrapPanel Grid.Row="3"
+                    Grid.ColumnSpan="2"
+                     HorizontalAlignment="Right"
+                   VerticalAlignment="Center">
+            <Button 
                 Width="30"
-                Content="+"
-                FontSize="18"
-                HorizontalContentAlignment="Center"
-                VerticalContentAlignment="Center"
+                Content="-"
+                FontSize="18" 
                 Margin=" 3"
                 >
-            
-        </Button>
+
+            </Button>
+            <TextBlock 
+                Width="30"
+                Text="1"
+                TextAlignment="Center"
+                FontSize="18" 
+                Margin=" 3"
+                >
+
+            </TextBlock>
+            <Button 
+                Width="30"
+                Content="+"
+                FontSize="18" 
+                Margin=" 3"
+                >
+
+            </Button>
+
+        </WrapPanel>
+       
     </Grid>
 </Window>

@@ -22,9 +22,11 @@ namespace TartugaLeksikovIzrancev.Pages
     /// </summary>
     public partial class BasketPage : Page
     {
+
         public BasketPage()
         {
             InitializeComponent();
+
             Refresh();
         }
 
@@ -32,7 +34,8 @@ namespace TartugaLeksikovIzrancev.Pages
         public void Refresh()
         {
             lvOrder.ItemsSource = null;
-            lvOrder.ItemsSource = GlobalInformation.ListOfOrder;
+            
+            lvOrder.ItemsSource = GlobalInformation.ListOfOrder.Distinct();
             tbTable.Text = "Ваш столик: " + GlobalInformation.IDTable.IDTable;
             tbPrice.Text = "Итоговая стоимость: " + totalPrice();
         }
@@ -52,7 +55,7 @@ namespace TartugaLeksikovIzrancev.Pages
             PageController.MainFrame.Navigate(new MenuPage(GlobalInformation.IDTable));
         }
 
-        //мутод удаляющий запись ил ListView при нажатии Delete
+        //мeтод удаляющий запись ил ListView при нажатии Delete
         private void lvOrder_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Delete)
@@ -69,6 +72,26 @@ namespace TartugaLeksikovIzrancev.Pages
         private void btnGoBasket_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Сделаем вид, что заказ оформлен, ок?");
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            lvOrder.SelectedItem = (sender as Button).DataContext;
+
+            var prod = lvOrder.SelectedItem as EF.Product;
+            GlobalInformation.ListOfOrder.Remove(prod);
+            Refresh();
+            
+        }
+
+        private void btnPlus_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnMinus_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

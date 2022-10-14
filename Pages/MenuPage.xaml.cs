@@ -112,12 +112,12 @@ namespace TartugaLeksikovIzrancev.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (lvMenu.SelectedItem is EF.Product)
-            {
-                var prod = lvMenu.SelectedItem as EF.Product;
-                GlobalInformation.ListOfOrder.Add(prod);
-                MessageBox.Show(prod.ProductName + " Добавлено в корзину");
-            }
+            lvMenu.SelectedItem = (sender as Button).DataContext;
+        
+            var prod = lvMenu.SelectedItem as EF.Product;
+            GlobalInformation.ListOfOrder.Add(prod);
+            MessageBox.Show(prod.ProductName + " Добавлено в корзину");
+            
         }
     }
 }
