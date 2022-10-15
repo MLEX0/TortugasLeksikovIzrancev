@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using TartugaLeksikovIzrancev.Classes;
 
 
+
 namespace TartugaLeksikovIzrancev.Pages
 {
     /// <summary>
@@ -34,10 +35,9 @@ namespace TartugaLeksikovIzrancev.Pages
         public void Refresh()
         {
             lvOrder.ItemsSource = null;
-            
-            lvOrder.ItemsSource = GlobalInformation.ListOfOrder.Distinct();
-            tbTable.Text = "Ваш столик: " + GlobalInformation.IDTable.IDTable;
             tbPrice.Text = "Итоговая стоимость: " + totalPrice();
+            tbTable.Text = "Ваш столик: " + GlobalInformation.IDTable.IDTable;
+            lvOrder.ItemsSource = GlobalInformation.ListOfOrder.Distinct().OrderBy(i=>i.IDProduct);
         }
 
         //Метод Высчитывающий итоговую стоимость заказа
@@ -46,8 +46,10 @@ namespace TartugaLeksikovIzrancev.Pages
             decimal totalCost = 0;
             foreach(EF.Product prod in GlobalInformation.ListOfOrder)
             {
+
                 totalCost += prod.Cost;
             }
+            
             return Convert.ToString(totalCost);
         }
         private void btnBack_Click(object sender, RoutedEventArgs e)
@@ -71,27 +73,64 @@ namespace TartugaLeksikovIzrancev.Pages
 
         private void btnGoBasket_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Сделаем вид, что заказ оформлен, ок?");
+            try
+            {
+                EF.Order order = new EF.Order();
+                order.TotalCost =Convert.ToDecimal(tbPrice.Text);
+                order.IDRestourantTable =Convert.ToInt32(tbTable.Text);
+                order.OrderTime = DateTime.Now;
+                order.IDEmployee = 1;
+                order.IDPromocode = null;
+                if (rbCard.IsChecked == true)
+                {
+                    order.IsCashless = true;
+                }
+                else
+                {
+                    order.IsCashless = false;
+                }
+                order.IDStatus = 1;
+
+                AppData.Context.Order.Add(order);
+                AppData.Context.SaveChanges();
+                var currentOrder = AppData.Context.Order.Where(i => i.OrderTime == order.OrderTime ).FirstOrDefault();
+
+                foreach(EF.Product prod in GlobalInformation.ListOfOrder.Distinct())
+                {
+                    EF.OrderProduct orderProduct = new EF.OrderProduct();
+                    orderProduct.IDOrder = currentOrder.IDOrder;
+                    orderProduct.IDProduct = prod.IDProduct;
+                    orderProduct.Count = prod.OrderProdCount;
+                    AppData.Context.OrderProduct.Add(orderProduct);
+                    AppData.Context.SaveChanges();
+
+                }
+
+                MessageBox.Show("Сделаем вид, что заказ оформлен, ок?");
+
+            }
+            catch (Exception er)
+            {
+                MessageBox.Show(er.Message).ToString();
+            }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+
+        private void btnPlus_Click(object sender, RoutedEventArgs e)
+        {
+            EF.Product btn = (sender as Button).DataContext as EF.Product;
+            GlobalInformation.ListOfOrder.Add(btn);
+            Refresh();
+        }
+
+        private void btnMinus_Click(object sender, RoutedEventArgs e)
         {
             lvOrder.SelectedItem = (sender as Button).DataContext;
 
             var prod = lvOrder.SelectedItem as EF.Product;
             GlobalInformation.ListOfOrder.Remove(prod);
             Refresh();
-            
-        }
-
-        private void btnPlus_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnMinus_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

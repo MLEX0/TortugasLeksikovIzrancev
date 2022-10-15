@@ -26,7 +26,8 @@
         <WrapPanel 
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center">
-            <TextBlock x:Name="txtTable"      
+            <TextBlock x:Name="txtTable"  
+                       FontSize="20"
                    >
 
             </TextBlock>
@@ -34,6 +35,7 @@
                     Content="Изменить"
                     Click="btnBack_Click" 
                     Margin="10 0"
+                    FontSize="20"
                     >
 
             </Button>
@@ -147,6 +149,7 @@
                 Grid.Column="3"
                 Width="100"
                 Height="40"
+                FontSize="20"
                 Content="В корзину" Click="btnGoBasket_Click">
 
         </Button>

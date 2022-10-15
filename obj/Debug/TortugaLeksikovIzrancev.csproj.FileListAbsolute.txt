@@ -1,7 +1,6 @@
 C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\bin\Debug\TartugaLeksikovIzrancev.exe.config
 C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\bin\Debug\TartugaLeksikovIzrancev.exe
 C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\bin\Debug\TartugaLeksikovIzrancev.pdb
-C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\TortugaLeksikovIzrancev.csproj.AssemblyReference.cache
 C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\Windows\MainPageWindow.g.cs
 C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\App.g.cs
 C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\TartugaLeksikovIzrancev_MarkupCompile.cache
@@ -32,3 +31,4 @@ C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\Pages\MoreDetailsP
 C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\Pages\MoreDetailsPage.baml
 C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\Windows\MenuProdTemplate.g.cs
 C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\Windows\MenuProdTemplate.baml
+C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\TortugaLeksikovIzrancev.csproj.AssemblyReference.cache
