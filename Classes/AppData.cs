@@ -10,6 +10,10 @@ namespace TartugaLeksikovIzrancev.Classes
     //Класс для работы с базой данных
     class AppData
     {
-        public static Entities Context { get; } = new Entities();
+        public static Entities Context { get; set; } = new Entities();
+
+        public static void updateAppData() {
+            Context = new Entities();
+        }
     }
 }

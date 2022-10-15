@@ -76,8 +76,8 @@ namespace TartugaLeksikovIzrancev.Pages
             try
             {
                 EF.Order order = new EF.Order();
-                order.TotalCost =Convert.ToDecimal(tbPrice.Text);
-                order.IDRestourantTable =Convert.ToInt32(tbTable.Text);
+                order.TotalCost =Convert.ToDecimal(totalPrice());
+                order.IDRestourantTable =Convert.ToInt32( GlobalInformation.IDTable.IDTable);
                 order.OrderTime = DateTime.Now;
                 order.IDEmployee = 1;
                 order.IDPromocode = null;
@@ -93,6 +93,7 @@ namespace TartugaLeksikovIzrancev.Pages
 
                 AppData.Context.Order.Add(order);
                 AppData.Context.SaveChanges();
+                AppData.updateAppData();
                 var currentOrder = AppData.Context.Order.Where(i => i.OrderTime == order.OrderTime ).FirstOrDefault();
 
                 foreach(EF.Product prod in GlobalInformation.ListOfOrder.Distinct())
