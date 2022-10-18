@@ -94,21 +94,10 @@ namespace TartugaLeksikovIzrancev.Pages
             }
         }
 
-        private void lvCategory_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            Filter();
-        }
+       
 
-        //Метод добавления продукта в корзину 
-        private void lvMenu_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if(lvMenu.SelectedItem is EF.Product)
-            {
-                var prod = lvMenu.SelectedItem as EF.Product;
-                GlobalInformation.ListOfOrder.Add(prod);
-                MessageBox.Show(prod.ProductName + " Добавлено в корзину");
-            }
-        }
+
+       
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -118,6 +107,12 @@ namespace TartugaLeksikovIzrancev.Pages
             GlobalInformation.ListOfOrder.Add(prod);
             MessageBox.Show(prod.ProductName + " Добавлено в корзину");
             
+        }
+
+        private void lvCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Filter();
+
         }
     }
 }

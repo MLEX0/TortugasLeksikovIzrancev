@@ -12,5 +12,7 @@ namespace TartugaLeksikovIzrancev.Classes
     {
         public static EF.RestourantTable IDTable { get; set; }
         public static List<EF.Product> ListOfOrder = new List<EF.Product>();
+        public static string Sale { get; set; }
+        public static string PromocodeName { get; set; }
     }
 }

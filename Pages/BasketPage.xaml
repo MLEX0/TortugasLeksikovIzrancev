@@ -16,6 +16,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -49,7 +50,7 @@
 
         <ListView x:Name="lvOrder"
                   Grid.Row="1"
-                  Grid.RowSpan="4"
+                  Grid.RowSpan="5"
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                   Grid.Column="0"
                   Grid.ColumnSpan="3"
@@ -174,7 +175,7 @@
 
         </TextBlock>
 
-        <StackPanel Grid.Row="3"
+        <StackPanel Grid.Row="4"
                     Grid.Column="3"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
@@ -190,9 +191,32 @@
                          FontSize="18">
                 
             </RadioButton>
-        </StackPanel>    
+        </StackPanel>
+
+        <WrapPanel  Grid.Row="3"
+                 Grid.Column="3"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center">
+            <TextBox x:Name="tbPromocode"
+                     FontSize="14"
+                     HorizontalContentAlignment="Center"
+                     VerticalContentAlignment="Center"
+                     TextAlignment="Left"
+                     Width="100"
+                     Height="30">
+
+            </TextBox>
+            <Button Width="30"
+                    Margin="10 0 0 0"
+                    x:Name="btnPromocode"
+                    Content="=>"
+                    Click="btnPromocode_Click">
+                
+            </Button>
+        </WrapPanel>
+      
         <Button x:Name="btnGoBasket"
-            Grid.Row="4"
+            Grid.Row="5"
                 Grid.Column="3"
                 Width="110"
                 Height="40"

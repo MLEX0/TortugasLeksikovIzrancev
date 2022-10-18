@@ -54,7 +54,6 @@
                   Grid.Column="0"
                   Grid.ColumnSpan="3"
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                  MouseRightButtonDown="lvMenu_MouseRightButtonDown"
                   MouseDoubleClick="lvMenu_MouseDoubleClick" Margin="-5,110,5,2.778"
                   >
             <ListView.ItemsPanel>
@@ -120,15 +119,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
 
-
-            <!--<ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Наименование" Width="100" DisplayMemberBinding="{Binding ProductName}"></GridViewColumn>
-                    <GridViewColumn Header="Цена" Width="100" DisplayMemberBinding="{Binding Cost}"></GridViewColumn>
-                    <GridViewColumn Header="Вес (г)" Width="100" DisplayMemberBinding="{Binding Weight}"></GridViewColumn>
-
-                </GridView>
-            </ListView.View>-->
         </ListView>
 
 
@@ -136,7 +126,8 @@
                   Grid.Row="1"
                   Grid.RowSpan="2"
                   Grid.Column="4"
-                  MouseDoubleClick="lvCategory_MouseDoubleClick">
+                  SelectionChanged="lvCategory_SelectionChanged"
+                  >
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Наименование" Width="100" DisplayMemberBinding="{Binding NameCategory}"></GridViewColumn>

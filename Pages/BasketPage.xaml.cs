@@ -34,6 +34,12 @@ namespace TartugaLeksikovIzrancev.Pages
         //Метод для обновления ListView 
         public void Refresh()
         {
+            if (GlobalInformation.Sale != null)
+            {
+                tbPromocode.IsEnabled = false;
+                btnPromocode.Content = "X";
+                tbPromocode.Text = GlobalInformation.PromocodeName;
+            }
             lvOrder.ItemsSource = null;
             tbPrice.Text = "Итоговая стоимость: " + totalPrice();
             tbTable.Text = "Ваш столик: " + GlobalInformation.IDTable.IDTable;
@@ -49,7 +55,11 @@ namespace TartugaLeksikovIzrancev.Pages
 
                 totalCost += prod.Cost;
             }
-            
+
+            if (GlobalInformation.Sale != null)
+            {
+                totalCost = totalCost - (totalCost *Convert.ToDecimal(GlobalInformation.Sale));
+            }
             return Convert.ToString(totalCost);
         }
         private void btnBack_Click(object sender, RoutedEventArgs e)
@@ -94,7 +104,6 @@ namespace TartugaLeksikovIzrancev.Pages
                 AppData.Context.Order.Add(order);
                 AppData.Context.SaveChanges();
                 AppData.updateAppData();
-                //var currentOrder = AppData.Context.Order.Where(i => i.OrderTime == order.OrderTime).FirstOrDefault();
                 var currentOrder = AppData.Context.Order.OrderByDescending(i=>i.OrderTime).FirstOrDefault();
 
                 foreach (EF.Product prod in GlobalInformation.ListOfOrder.Distinct())
@@ -109,6 +118,11 @@ namespace TartugaLeksikovIzrancev.Pages
                 }
 
                 MessageBox.Show("Заказ сделан, ожидайте");
+                GlobalInformation.IDTable = null;
+                GlobalInformation.ListOfOrder = new List<EF.Product>();
+                GlobalInformation.PromocodeName = null;
+                GlobalInformation.Sale = null;
+                PageController.MainFrame.Navigate(new StartPage());
 
             }
             catch (Exception er)
@@ -133,6 +147,38 @@ namespace TartugaLeksikovIzrancev.Pages
             var prod = lvOrder.SelectedItem as EF.Product;
             GlobalInformation.ListOfOrder.Remove(prod);
             Refresh();
+        }
+
+        private void btnPromocode_Click(object sender, RoutedEventArgs e)
+        {
+            if (tbPromocode.IsEnabled == true)
+            {
+                var promo = AppData.Context.Promocode.Where(i => i.Code == tbPromocode.Text).FirstOrDefault();
+
+                if (promo != null)
+                {
+                    GlobalInformation.Sale = Convert.ToString(promo.Discount);
+                    GlobalInformation.PromocodeName = tbPromocode.Text;
+                    tbPromocode.IsEnabled = false;
+                    btnPromocode.Content = "X";
+                    Refresh();
+                    MessageBox.Show("Промокод успешно активирован");
+                }
+                else
+                {
+                    MessageBox.Show("Такого промокода нет");
+
+                }
+            }
+            else
+            {
+                tbPromocode.IsEnabled = true;
+                tbPromocode.Text = "";
+                btnPromocode.Content = "=>";
+                GlobalInformation.Sale = null;
+                Refresh();
+            }
+          
         }
     }
 }

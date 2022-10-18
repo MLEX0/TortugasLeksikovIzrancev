@@ -21,6 +21,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
 
         </Grid.RowDefinitions>
 
@@ -46,7 +47,7 @@
         <Image x:Name="ImageProd"
                Grid.ColumnSpan="2"
                Grid.Row="1"
-               Grid.RowSpan="3" Source="/TartugaLeksikovIzrancev;component/Res/PlaceHolder.png">
+               Grid.RowSpan="4" Source="/TartugaLeksikovIzrancev;component/Res/PlaceHolder.png">
             
         </Image>
         <TextBlock x:Name="tbName"
@@ -82,8 +83,19 @@
 
 
         </TextBlock>
+        <TextBlock x:Name="tbWeight"
+                   Grid.Column="2"
+                   Grid.ColumnSpan="2"
+                   Grid.Row="4"
+                   FontSize="18"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   TextAlignment="Center">
+
+
+        </TextBlock>
         <Button Name="btnAdd"
-                Grid.Row="4"
+                Grid.Row="5"
                 Grid.Column="2"
                 Grid.ColumnSpan="2"
                 HorizontalAlignment="Center"
