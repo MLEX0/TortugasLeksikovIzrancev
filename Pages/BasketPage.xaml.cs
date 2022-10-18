@@ -94,9 +94,10 @@ namespace TartugaLeksikovIzrancev.Pages
                 AppData.Context.Order.Add(order);
                 AppData.Context.SaveChanges();
                 AppData.updateAppData();
-                var currentOrder = AppData.Context.Order.Where(i => i.OrderTime == order.OrderTime ).FirstOrDefault();
+                //var currentOrder = AppData.Context.Order.Where(i => i.OrderTime == order.OrderTime).FirstOrDefault();
+                var currentOrder = AppData.Context.Order.OrderByDescending(i=>i.OrderTime).FirstOrDefault();
 
-                foreach(EF.Product prod in GlobalInformation.ListOfOrder.Distinct())
+                foreach (EF.Product prod in GlobalInformation.ListOfOrder.Distinct())
                 {
                     EF.OrderProduct orderProduct = new EF.OrderProduct();
                     orderProduct.IDOrder = currentOrder.IDOrder;
@@ -107,7 +108,7 @@ namespace TartugaLeksikovIzrancev.Pages
 
                 }
 
-                MessageBox.Show("Сделаем вид, что заказ оформлен, ок?");
+                MessageBox.Show("Заказ сделан, ожидайте");
 
             }
             catch (Exception er)
