@@ -52,20 +52,17 @@ namespace TartugaLeksikovIzrancev.Pages
 
                 ImageProd.Source = bitmap;
             }
-           
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             PageController.MainFrame.Navigate(new MenuPage(GlobalInformation.IDTable));
-
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             GlobalInformation.ListOfOrder.Add(prod);
             MessageBox.Show(prod.ProductName + " Добавлено в корзину");
-            
         }
     }
 }

@@ -218,6 +218,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Res\image 1.png" />
     <Resource Include="Res\PlaceHolder.png" />
   </ItemGroup>
   <ItemGroup>

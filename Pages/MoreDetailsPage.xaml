@@ -25,6 +25,11 @@
 
         </Grid.RowDefinitions>
 
+        <Image Grid.Column="3"
+               Margin="10" Source="/TartugaLeksikovIzrancev;component/Res/image 1.png">
+
+        </Image>
+        
         <Button x:Name="btnBack" 
                 Content="К меню"
                 FontSize="20"

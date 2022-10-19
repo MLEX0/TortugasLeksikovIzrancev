@@ -5,8 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TartugaLeksikovIzrancev.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      
+      d:DesignHeight="450" d:DesignWidth="800"     
       Title="BasketPage">
 
     <Grid>
@@ -25,6 +24,12 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
+        <Image Grid.Column="3"
+               Margin="10"
+               Source="/TartugaLeksikovIzrancev;component/Res/image 1.png">
+
+        </Image>
+
 
         <WrapPanel 
                    HorizontalAlignment="Center"
@@ -33,8 +38,8 @@
             <Button x:Name="btnBack" 
                     Content="К меню"
                     FontSize="20"
-
-                    Margin="10 0" Click="btnBack_Click"
+                    Margin="10 0" 
+                    Click="btnBack_Click"
                     >
 
             </Button>
@@ -51,6 +56,7 @@
         <ListView x:Name="lvOrder"
                   Grid.Row="1"
                   Grid.RowSpan="5"
+                  BorderBrush="{x:Null}"
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                   Grid.Column="0"
                   Grid.ColumnSpan="3"
@@ -64,15 +70,13 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid Height="180"
-                          Width="160"
-          
+                          Width="160"          
                           Background="LightGray">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="30"/>
                             <RowDefinition Height="30"/>
-
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
@@ -94,7 +98,7 @@
                                 <Binding Path="MainImage"></Binding>
                             </Image.Source>
 
-                            
+
                         </Image>
                         <TextBlock Grid.Row="2"
                                    Grid.ColumnSpan="2"
@@ -138,16 +142,9 @@
                             </Button>
 
                         </WrapPanel>
-
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
-            <!--<ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Наименование" Width="100" DisplayMemberBinding="{Binding ProductName}"></GridViewColumn>
-                    <GridViewColumn Header="Цена" Width="100" DisplayMemberBinding="{Binding Cost}"></GridViewColumn>
-                </GridView>
-            </ListView.View>-->
         </ListView>
 
 
@@ -193,11 +190,17 @@
             </RadioButton>
         </StackPanel>
 
-        <WrapPanel  Grid.Row="3"
+        <StackPanel  Grid.Row="3"
                  Grid.Column="3"
                  HorizontalAlignment="Center"
                  VerticalAlignment="Center">
-            <TextBox x:Name="tbPromocode"
+            <TextBlock Text="Промокод"
+                       Margin="0 0 0 5"
+                       FontSize="16">
+                
+            </TextBlock>
+            <WrapPanel>
+                <TextBox x:Name="tbPromocode"
                      FontSize="14"
                      HorizontalContentAlignment="Center"
                      VerticalContentAlignment="Center"
@@ -205,15 +208,17 @@
                      Width="100"
                      Height="30">
 
-            </TextBox>
-            <Button Width="30"
+                </TextBox>
+                <Button Width="30"
                     Margin="10 0 0 0"
                     x:Name="btnPromocode"
                     Content="=>"
                     Click="btnPromocode_Click">
-                
-            </Button>
-        </WrapPanel>
+
+                </Button>
+            </WrapPanel>
+        
+        </StackPanel>
       
         <Button x:Name="btnGoBasket"
             Grid.Row="5"

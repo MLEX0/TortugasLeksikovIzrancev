@@ -11,7 +11,6 @@ namespace TartugaLeksikovIzrancev.Classes
     class AppData
     {
         public static Entities Context { get; set; } = new Entities();
-
         public static void updateAppData() {
             Context = new Entities();
         }

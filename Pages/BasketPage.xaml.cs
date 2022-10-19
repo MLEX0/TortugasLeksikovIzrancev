@@ -85,6 +85,7 @@ namespace TartugaLeksikovIzrancev.Pages
         {
             try
             {
+                //Добавление заказа в базу
                 EF.Order order = new EF.Order();
                 order.TotalCost =Convert.ToDecimal(totalPrice());
                 order.IDRestourantTable =Convert.ToInt32( GlobalInformation.IDTable.IDTable);
@@ -104,8 +105,11 @@ namespace TartugaLeksikovIzrancev.Pages
                 AppData.Context.Order.Add(order);
                 AppData.Context.SaveChanges();
                 AppData.updateAppData();
+
+                //Вытаскивание текущего заказа
                 var currentOrder = AppData.Context.Order.OrderByDescending(i=>i.OrderTime).FirstOrDefault();
 
+                //Добавление продуктов заказа в базу
                 foreach (EF.Product prod in GlobalInformation.ListOfOrder.Distinct())
                 {
                     EF.OrderProduct orderProduct = new EF.OrderProduct();
@@ -118,6 +122,8 @@ namespace TartugaLeksikovIzrancev.Pages
                 }
 
                 MessageBox.Show("Заказ сделан, ожидайте");
+
+                //Обнуление данных для сброса
                 GlobalInformation.IDTable = null;
                 GlobalInformation.ListOfOrder = new List<EF.Product>();
                 GlobalInformation.PromocodeName = null;
@@ -131,8 +137,7 @@ namespace TartugaLeksikovIzrancev.Pages
             }
         }
 
-
-
+        //Метод Увеличение колличсества товара
         private void btnPlus_Click(object sender, RoutedEventArgs e)
         {
             EF.Product btn = (sender as Button).DataContext as EF.Product;
@@ -140,6 +145,7 @@ namespace TartugaLeksikovIzrancev.Pages
             Refresh();
         }
 
+        //Метод убавления колличество товара
         private void btnMinus_Click(object sender, RoutedEventArgs e)
         {
             lvOrder.SelectedItem = (sender as Button).DataContext;
@@ -149,6 +155,7 @@ namespace TartugaLeksikovIzrancev.Pages
             Refresh();
         }
 
+        //Метод для проверки промокода
         private void btnPromocode_Click(object sender, RoutedEventArgs e)
         {
             if (tbPromocode.IsEnabled == true)

@@ -75,16 +75,20 @@ namespace TartugaLeksikovIzrancev.Pages
 
             lvMenu.ItemsSource = products;
         }
+
+        //Перезод на окно выбора столика
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             PageController.MainFrame.Navigate(new StartPage());
         }
 
+        //Переход на окно Корзины
         private void btnGoBasket_Click(object sender, RoutedEventArgs e)
         {
             PageController.MainFrame.Navigate(new BasketPage());
         }
 
+        //Переход на окно Подробнее о товаре
         private void lvMenu_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if(lvMenu.SelectedItem is EF.Product)
@@ -94,11 +98,7 @@ namespace TartugaLeksikovIzrancev.Pages
             }
         }
 
-       
-
-
-       
-
+        //Метод добавления товара в корзину
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             lvMenu.SelectedItem = (sender as Button).DataContext;
@@ -109,6 +109,7 @@ namespace TartugaLeksikovIzrancev.Pages
             
         }
 
+        
         private void lvCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Filter();
