@@ -23,7 +23,6 @@ namespace TartugaLeksikovIzrancev.Pages
     /// </summary>
     public partial class BasketPage : Page
     {
-
         public BasketPage()
         {
             InitializeComponent();
@@ -161,7 +160,6 @@ namespace TartugaLeksikovIzrancev.Pages
             if (tbPromocode.IsEnabled == true)
             {
                 var promo = AppData.Context.Promocode.Where(i => i.Code == tbPromocode.Text).FirstOrDefault();
-
                 if (promo != null)
                 {
                     GlobalInformation.Sale = Convert.ToString(promo.Discount);
@@ -174,7 +172,6 @@ namespace TartugaLeksikovIzrancev.Pages
                 else
                 {
                     MessageBox.Show("Такого промокода нет");
-
                 }
             }
             else

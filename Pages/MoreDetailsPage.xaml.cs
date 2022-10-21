@@ -37,7 +37,6 @@ namespace TartugaLeksikovIzrancev.Pages
             else
             {
                 tbWeight.Text = "Вес " + Convert.ToString(product.Weight) + " Г.";
-
             }
             prod = product;
 

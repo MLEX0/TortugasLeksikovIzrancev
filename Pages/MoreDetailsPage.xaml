@@ -26,7 +26,8 @@
         </Grid.RowDefinitions>
 
         <Image Grid.Column="3"
-               Margin="10" Source="/TartugaLeksikovIzrancev;component/Res/image 1.png">
+               Margin="10" 
+               Source="/TartugaLeksikovIzrancev;component/Res/image 1.png">
 
         </Image>
         
@@ -47,12 +48,12 @@
                    VerticalAlignment="Center"
                    TextAlignment="Center">
 
-
         </TextBlock>
         <Image x:Name="ImageProd"
                Grid.ColumnSpan="2"
                Grid.Row="1"
-               Grid.RowSpan="4" Source="/TartugaLeksikovIzrancev;component/Res/PlaceHolder.png">
+               Grid.RowSpan="4" 
+               Source="/TartugaLeksikovIzrancev;component/Res/PlaceHolder.png">
             
         </Image>
         <TextBlock x:Name="tbName"

@@ -23,7 +23,8 @@
         </Grid.ColumnDefinitions>
 
         <Image Grid.Column="3"
-               Margin="10" Source="/TartugaLeksikovIzrancev;component/Res/image 1.png">
+               Margin="10" 
+               Source="/TartugaLeksikovIzrancev;component/Res/image 1.png">
             
         </Image>
 
@@ -127,6 +128,7 @@
         </ListView>
 
 
+        
         <ListView x:Name="lvCategory"
                   Grid.Row="1"
                   Grid.RowSpan="2"
@@ -136,7 +138,7 @@
                   >
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Наименование" Width="100" DisplayMemberBinding="{Binding NameCategory}"></GridViewColumn>
+                    <GridViewColumn Header="Категории" Width="190" DisplayMemberBinding="{Binding NameCategory}"></GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>

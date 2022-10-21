@@ -106,9 +106,7 @@ namespace TartugaLeksikovIzrancev.Pages
             var prod = lvMenu.SelectedItem as EF.Product;
             GlobalInformation.ListOfOrder.Add(prod);
             MessageBox.Show(prod.ProductName + " Добавлено в корзину");
-            
         }
-
         
         private void lvCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
