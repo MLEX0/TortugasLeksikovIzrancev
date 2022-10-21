@@ -43,3 +43,7 @@
 
 Хранятся статусы заказов <br>
 ![image](https://user-images.githubusercontent.com/80753761/197173885-857489ba-be56-402a-bafc-64bcbde6dd3e.png) <br>
+
+<h1>Структура Проекта</h1>
+
+![image](https://user-images.githubusercontent.com/80753761/197179130-fd9a6511-eda6-4c50-8961-564235386c87.png) <br>
