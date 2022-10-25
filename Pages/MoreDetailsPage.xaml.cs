@@ -29,10 +29,9 @@ namespace TartugaLeksikovIzrancev.Pages
             tbName.Text = product.ProductName;
             tbDescription.Text = product.Description;
             tbComposition.Text = "Состав:"+product.Composition;
-            if (product.IDCategory == 5)
+            if (product.Category.NameCategory == "Напитки")
             {
                 tbWeight.Text = "Вес " + Convert.ToString(product.Weight) + " Мл.";
-
             }
             else
             {

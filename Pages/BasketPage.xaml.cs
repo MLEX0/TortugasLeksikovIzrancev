@@ -15,7 +15,6 @@ using System.Windows.Shapes;
 using TartugaLeksikovIzrancev.Classes;
 
 
-
 namespace TartugaLeksikovIzrancev.Pages
 {
     /// <summary>
@@ -51,7 +50,6 @@ namespace TartugaLeksikovIzrancev.Pages
             decimal totalCost = 0;
             foreach(EF.Product prod in GlobalInformation.ListOfOrder)
             {
-
                 totalCost += prod.Cost;
             }
 
@@ -117,9 +115,7 @@ namespace TartugaLeksikovIzrancev.Pages
                     orderProduct.Count = prod.OrderProdCount;
                     AppData.Context.OrderProduct.Add(orderProduct);
                     AppData.Context.SaveChanges();
-
                 }
-
                 MessageBox.Show("Заказ сделан, ожидайте");
 
                 //Обнуление данных для сброса
@@ -128,7 +124,6 @@ namespace TartugaLeksikovIzrancev.Pages
                 GlobalInformation.PromocodeName = null;
                 GlobalInformation.Sale = null;
                 PageController.MainFrame.Navigate(new StartPage());
-
             }
             catch (Exception er)
             {

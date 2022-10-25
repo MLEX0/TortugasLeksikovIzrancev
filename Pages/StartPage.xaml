@@ -9,7 +9,6 @@
       Title="StartPage">
 
     <Grid>
-
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>

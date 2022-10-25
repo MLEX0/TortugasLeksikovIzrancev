@@ -25,7 +25,7 @@
         <Image Grid.Column="3"
                Margin="10" 
                Source="/TartugaLeksikovIzrancev;component/Res/image 1.png">
-            
+
         </Image>
 
         <WrapPanel 
@@ -98,7 +98,7 @@
                                    TextAlignment="Center"
                                    FontSize="14"
                                    Text="{Binding Cost}">
-                            
+
                         </TextBlock>
                         <TextBlock Grid.Row="2"
                                    Grid.ColumnSpan="2"
@@ -124,11 +124,8 @@
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
-
         </ListView>
 
-
-        
         <ListView x:Name="lvCategory"
                   Grid.Row="1"
                   Grid.RowSpan="2"
@@ -138,7 +135,7 @@
                   >
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Категории" Width="190" DisplayMemberBinding="{Binding NameCategory}"></GridViewColumn>
+                    <GridViewColumn Header="Категории" Width="230" DisplayMemberBinding="{Binding NameCategory}"></GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
@@ -153,5 +150,4 @@
 
         </Button>
     </Grid>
-
 </Page>
