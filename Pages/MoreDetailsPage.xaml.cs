@@ -39,6 +39,7 @@ namespace TartugaLeksikovIzrancev.Pages
             }
             prod = product;
 
+            
             //проверка на наличие ссылки на изображение
             if (product.MainImage != null)
             {

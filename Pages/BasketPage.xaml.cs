@@ -38,6 +38,7 @@ namespace TartugaLeksikovIzrancev.Pages
                 btnPromocode.Content = "X";
                 tbPromocode.Text = GlobalInformation.PromocodeName;
             }
+
             lvOrder.ItemsSource = null;
             tbPrice.Text = "Итоговая стоимость: " + totalPrice();
             tbTable.Text = "Ваш столик: " + GlobalInformation.IDTable.IDTable;
@@ -55,8 +56,9 @@ namespace TartugaLeksikovIzrancev.Pages
 
             if (GlobalInformation.Sale != null)
             {
-                totalCost = totalCost - (totalCost *Convert.ToDecimal(GlobalInformation.Sale));
+                totalCost = totalCost - (totalCost * Convert.ToDecimal(GlobalInformation.Sale));
             }
+
             return Convert.ToString(totalCost);
         }
         private void btnBack_Click(object sender, RoutedEventArgs e)
@@ -80,54 +82,62 @@ namespace TartugaLeksikovIzrancev.Pages
 
         private void btnGoBasket_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (GlobalInformation.ListOfOrder.Count==0)
             {
-                //Добавление заказа в базу
-                EF.Order order = new EF.Order();
-                order.TotalCost =Convert.ToDecimal(totalPrice());
-                order.IDRestourantTable =Convert.ToInt32( GlobalInformation.IDTable.IDTable);
-                order.OrderTime = DateTime.Now;
-                order.IDEmployee = 1;
-                order.IDPromocode = null;
-                if (rbCard.IsChecked == true)
-                {
-                    order.IsCashless = true;
-                }
-                else
-                {
-                    order.IsCashless = false;
-                }
-                order.IDStatus = 1;
-
-                AppData.Context.Order.Add(order);
-                AppData.Context.SaveChanges();
-                AppData.updateAppData();
-
-                //Вытаскивание текущего заказа
-                var currentOrder = AppData.Context.Order.OrderByDescending(i=>i.OrderTime).FirstOrDefault();
-
-                //Добавление продуктов заказа в базу
-                foreach (EF.Product prod in GlobalInformation.ListOfOrder.Distinct())
-                {
-                    EF.OrderProduct orderProduct = new EF.OrderProduct();
-                    orderProduct.IDOrder = currentOrder.IDOrder;
-                    orderProduct.IDProduct = prod.IDProduct;
-                    orderProduct.Count = prod.OrderProdCount;
-                    AppData.Context.OrderProduct.Add(orderProduct);
-                    AppData.Context.SaveChanges();
-                }
-                MessageBox.Show("Заказ сделан, ожидайте");
-
-                //Обнуление данных для сброса
-                GlobalInformation.IDTable = null;
-                GlobalInformation.ListOfOrder = new List<EF.Product>();
-                GlobalInformation.PromocodeName = null;
-                GlobalInformation.Sale = null;
-                PageController.MainFrame.Navigate(new StartPage());
+                MessageBox.Show("Сначала выберите блюда");
+                return;
             }
-            catch (Exception er)
+            else
             {
-                MessageBox.Show(er.Message).ToString();
+                try
+                {
+                    //Добавление заказа в базу
+                    EF.Order order = new EF.Order();
+                    order.TotalCost = Convert.ToDecimal(totalPrice());
+                    order.IDRestourantTable = Convert.ToInt32(GlobalInformation.IDTable.IDTable);
+                    order.OrderTime = DateTime.Now;
+                    order.IDEmployee = 1;
+                    order.IDPromocode = null;
+                    if (rbCard.IsChecked == true)
+                    {
+                        order.IsCashless = true;
+                    }
+                    else
+                    {
+                        order.IsCashless = false;
+                    }
+                    order.IDStatus = 1;
+
+                    AppData.Context.Order.Add(order);
+                    AppData.Context.SaveChanges();
+                    AppData.updateAppData();
+
+                    //Вытаскивание текущего заказа
+                    var currentOrder = AppData.Context.Order.OrderByDescending(i => i.OrderTime).FirstOrDefault();
+
+                    //Добавление продуктов заказа в базу
+                    foreach (EF.Product prod in GlobalInformation.ListOfOrder.Distinct())
+                    {
+                        EF.OrderProduct orderProduct = new EF.OrderProduct();
+                        orderProduct.IDOrder = currentOrder.IDOrder;
+                        orderProduct.IDProduct = prod.IDProduct;
+                        orderProduct.Count = prod.OrderProdCount;
+                        AppData.Context.OrderProduct.Add(orderProduct);
+                        AppData.Context.SaveChanges();
+                    }
+                    MessageBox.Show("Заказ сделан, ожидайте");
+
+                    //Обнуление данных для сброса
+                    GlobalInformation.IDTable = null;
+                    GlobalInformation.ListOfOrder = new List<EF.Product>();
+                    GlobalInformation.PromocodeName = null;
+                    GlobalInformation.Sale = null;
+                    PageController.MainFrame.Navigate(new StartPage());
+                }
+                catch (Exception er)
+                {
+                    MessageBox.Show(er.Message).ToString();
+                }
             }
         }
 
