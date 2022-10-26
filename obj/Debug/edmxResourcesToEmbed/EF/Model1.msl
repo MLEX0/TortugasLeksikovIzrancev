@@ -28,6 +28,7 @@
     <EntitySetMapping Name="Category">
       <EntityTypeMapping TypeName="Tortugas_Izrancev_Leksikov_4ISP97Model.Category">
         <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="Image" ColumnName="Image" />
           <ScalarProperty Name="NameCategory" ColumnName="NameCategory" />
           <ScalarProperty Name="IDCategory" ColumnName="IDCategory" />
         </MappingFragment>

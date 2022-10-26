@@ -6,6 +6,7 @@
     </Key>
     <Property Name="IDCategory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="NameCategory" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Image" Type="nvarchar" MaxLength="2000" />
   </EntityType>
   <EntityType Name="Employee">
     <Key>

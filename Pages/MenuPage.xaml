@@ -33,7 +33,7 @@
                    VerticalAlignment="Center">
             <TextBlock x:Name="txtTable"  
                        FontSize="20"
-                   >
+                      >
 
             </TextBlock>
             <Button x:Name="btnBack" 
@@ -41,6 +41,8 @@
                     Click="btnBack_Click" 
                     Margin="10 0"
                     FontSize="20"
+                    Background="DarkGray"
+                    Foreground="White"
                     >
 
             </Button>
@@ -70,9 +72,9 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid Height="180"
-                          Width="160"
-          
-                          Background="LightGray">
+                          Width="160"         
+                          Background="LightGray"
+                          >
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
@@ -88,7 +90,11 @@
                         <Image Grid.RowSpan="2"
                                Grid.ColumnSpan="2">
                             <Image.Source>
-                                <Binding Path="MainImage"></Binding>
+                                <Binding Path="MainImage">
+                                    <Binding.TargetNullValue>
+                                        <ImageSource>C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\Res\PlaceHolder.png</ImageSource>
+                                    </Binding.TargetNullValue>
+                                </Binding>
                             </Image.Source>
 
                         </Image>
@@ -106,17 +112,20 @@
                                    VerticalAlignment="Center"
                                    TextWrapping="Wrap"
                                    FontSize="12"
+                                   Margin="10 0 0 0"
                                    Text="{Binding ProductName}">
 
                         </TextBlock>
                         <Button Grid.Column="2"
                                 Grid.Row="3"
-                                Width="30"
+                                Width="35"
                                 Content="+"
                                 FontSize="18"
+                                 Background="DarkGray"
+                                Foreground="White"
+                                HorizontalAlignment="Right"
                                 HorizontalContentAlignment="Center"
                                 VerticalContentAlignment="Center"
-                                Margin=" 3"
                                 Click="Button_Click"
                                 >
 
@@ -131,13 +140,40 @@
                   Grid.RowSpan="2"
                   Grid.Column="4"
                   BorderBrush="{x:Null}"
+                  ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                   SelectionChanged="lvCategory_SelectionChanged"
                   >
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Категории" Width="230" DisplayMemberBinding="{Binding NameCategory}"></GridViewColumn>
-                </GridView>
-            </ListView.View>
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Height="60" Width="200"
+                          Background="LightGray">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="{Binding NameCategory}"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   FontSize="18"
+                                   TextWrapping="Wrap">
+
+                        </TextBlock>
+                        <Image Grid.Column="1">
+
+                            <Image.Source>
+                                <Binding Path="Image"></Binding>
+                            </Image.Source>
+                        </Image>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
 
         <Button x:Name="btnGoBasket"
@@ -146,6 +182,8 @@
                 Width="100"
                 Height="40"
                 FontSize="20"
+                    Background="DarkGray"
+                 Foreground="White"
                 Content="В корзину" Click="btnGoBasket_Click">
 
         </Button>

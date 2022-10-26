@@ -40,6 +40,8 @@
                     FontSize="20"
                     Margin="10 0" 
                     Click="btnBack_Click"
+                    Background="DarkGray"
+                 Foreground="White"
                     >
 
             </Button>
@@ -106,6 +108,7 @@
                                    VerticalAlignment="Center"
                                    TextWrapping="Wrap"
                                    FontSize="12"
+                                   Margin="10 0 0 0"
                                    Text="{Binding ProductName}">
 
                         </TextBlock>
@@ -118,6 +121,8 @@
                                     Content="-"
                                     FontSize="18" 
                                     Margin=" 3"
+                                       Background="DarkGray"
+                                      Foreground="White"
                                     Click="btnMinus_Click"
                                     >
 
@@ -136,6 +141,8 @@
                                     Content="+"
                                     FontSize="18" 
                                     Margin=" 3"
+                                      Background="DarkGray"
+                                      Foreground="White"
                                     Click="btnPlus_Click"
                                     >
 
@@ -213,6 +220,8 @@
                     Margin="10 0 0 0"
                     x:Name="btnPromocode"
                     Content="=>"
+                    Background="DarkGray"
+                 Foreground="White"
                     Click="btnPromocode_Click">
 
                 </Button>
@@ -225,6 +234,8 @@
                 Grid.Column="3"
                 Width="110"
                 Height="40"
+                    Background="DarkGray"
+                 Foreground="White"
                 Content="Оформить заказ" Click="btnGoBasket_Click" >
 
         </Button>

@@ -32,3 +32,5 @@ C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\Pages\MoreDetailsP
 C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\Windows\MenuProdTemplate.g.cs
 C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\Windows\MenuProdTemplate.baml
 C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\TortugaLeksikovIzrancev.csproj.AssemblyReference.cache
+C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\Windows\CategoryTemplate.g.cs
+C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\Windows\CategoryTemplate.baml

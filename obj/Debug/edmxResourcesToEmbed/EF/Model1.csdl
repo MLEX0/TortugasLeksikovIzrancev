@@ -86,6 +86,7 @@
     </Key>
     <Property Name="IDCategory" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="NameCategory" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Product" Relationship="Tortugas_Izrancev_Leksikov_4ISP97Model.FK_Product_Category" FromRole="Category" ToRole="Product" />
   </EntityType>
   <EntityType Name="Employee">
