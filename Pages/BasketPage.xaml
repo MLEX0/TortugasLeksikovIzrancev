@@ -62,7 +62,6 @@
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                   Grid.Column="0"
                   Grid.ColumnSpan="3"
-                  KeyDown="lvOrder_KeyDown"
                   >
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>

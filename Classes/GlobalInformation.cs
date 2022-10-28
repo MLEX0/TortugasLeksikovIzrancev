@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using TartugaLeksikovIzrancev.Classes;
 
 namespace TartugaLeksikovIzrancev.Classes
@@ -13,7 +14,7 @@ namespace TartugaLeksikovIzrancev.Classes
         public static EF.RestourantTable IDTable { get; set; }
 
         public static List<EF.Product> ListOfOrder = new List<EF.Product>();
-        public static string Sale { get; set; }
-        public static string PromocodeName { get; set; }
+        public static EF.Promocode Promocode { get; set; } = new EF.Promocode();
+     
     }
 }

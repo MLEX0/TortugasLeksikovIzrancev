@@ -25,18 +25,18 @@ namespace TartugaLeksikovIzrancev.Pages
         public BasketPage()
         {
             InitializeComponent();
-
+            
             Refresh();
         }
 
         //Метод для обновления ListView 
         public void Refresh()
         {
-            if (GlobalInformation.Sale != null)
+            if (GlobalInformation.Promocode.Discount != 0)
             {
                 tbPromocode.IsEnabled = false;
                 btnPromocode.Content = "X";
-                tbPromocode.Text = GlobalInformation.PromocodeName;
+                tbPromocode.Text = GlobalInformation.Promocode.Code;
             }
 
             lvOrder.ItemsSource = null;
@@ -49,35 +49,17 @@ namespace TartugaLeksikovIzrancev.Pages
         public string totalPrice()
         {
             decimal totalCost = 0;
-            foreach(EF.Product prod in GlobalInformation.ListOfOrder)
+            foreach (EF.Product prod in GlobalInformation.ListOfOrder)
             {
                 totalCost += prod.Cost;
             }
-
-            if (GlobalInformation.Sale != null)
-            {
-                totalCost = totalCost - (totalCost * Convert.ToDecimal(GlobalInformation.Sale));
-            }
+            totalCost = totalCost - (totalCost * Convert.ToDecimal(GlobalInformation.Promocode.Discount));
 
             return Convert.ToString(totalCost);
         }
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             PageController.MainFrame.Navigate(new MenuPage(GlobalInformation.IDTable));
-        }
-
-        //мeтод удаляющий запись ил ListView при нажатии Delete
-        private void lvOrder_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Delete)
-            {
-                if(lvOrder.SelectedItem is EF.Product)
-                {
-                    var prod = lvOrder.SelectedItem as EF.Product;
-                    GlobalInformation.ListOfOrder.Remove(prod);
-                    Refresh();
-                }
-            }
         }
 
         private void btnGoBasket_Click(object sender, RoutedEventArgs e)
@@ -97,7 +79,7 @@ namespace TartugaLeksikovIzrancev.Pages
                     order.IDRestourantTable = Convert.ToInt32(GlobalInformation.IDTable.IDTable);
                     order.OrderTime = DateTime.Now;
                     order.IDEmployee = 1;
-                    order.IDPromocode = null;
+                    order.IDPromocode = GlobalInformation.Promocode.IDPromocode;
                     if (rbCard.IsChecked == true)
                     {
                         order.IsCashless = true;
@@ -122,6 +104,7 @@ namespace TartugaLeksikovIzrancev.Pages
                         orderProduct.IDOrder = currentOrder.IDOrder;
                         orderProduct.IDProduct = prod.IDProduct;
                         orderProduct.Count = prod.OrderProdCount;
+
                         AppData.Context.OrderProduct.Add(orderProduct);
                         AppData.Context.SaveChanges();
                     }
@@ -130,8 +113,7 @@ namespace TartugaLeksikovIzrancev.Pages
                     //Обнуление данных для сброса
                     GlobalInformation.IDTable = null;
                     GlobalInformation.ListOfOrder = new List<EF.Product>();
-                    GlobalInformation.PromocodeName = null;
-                    GlobalInformation.Sale = null;
+                    GlobalInformation.Promocode = new EF.Promocode();
                     PageController.MainFrame.Navigate(new StartPage());
                 }
                 catch (Exception er)
@@ -153,7 +135,6 @@ namespace TartugaLeksikovIzrancev.Pages
         private void btnMinus_Click(object sender, RoutedEventArgs e)
         {
             lvOrder.SelectedItem = (sender as Button).DataContext;
-
             var prod = lvOrder.SelectedItem as EF.Product;
             GlobalInformation.ListOfOrder.Remove(prod);
             Refresh();
@@ -167,8 +148,8 @@ namespace TartugaLeksikovIzrancev.Pages
                 var promo = AppData.Context.Promocode.Where(i => i.Code == tbPromocode.Text).FirstOrDefault();
                 if (promo != null)
                 {
-                    GlobalInformation.Sale = Convert.ToString(promo.Discount);
-                    GlobalInformation.PromocodeName = tbPromocode.Text;
+                    GlobalInformation.Promocode.Discount = promo.Discount;
+                    GlobalInformation.Promocode.Code = tbPromocode.Text;
                     tbPromocode.IsEnabled = false;
                     btnPromocode.Content = "X";
                     Refresh();
@@ -184,7 +165,7 @@ namespace TartugaLeksikovIzrancev.Pages
                 tbPromocode.IsEnabled = true;
                 tbPromocode.Text = "";
                 btnPromocode.Content = "=>";
-                GlobalInformation.Sale = null;
+                GlobalInformation.Promocode.Discount = 0;
                 Refresh();
             }
           
