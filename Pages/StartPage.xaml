@@ -3,7 +3,8 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:TartugaLeksikovIzrancev.Pages"
+      xmlns:local="clr-namespace:TartugaLeksikovIzrancev.Pages" 
+      xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="StartPage">
@@ -28,9 +29,8 @@
             <ColumnDefinition Width="50"/>
         </Grid.ColumnDefinitions>
 
-
-        <Border Background="White" 
-                Grid.ColumnSpan="4" 
+        <Border Background="White"
+                Grid.ColumnSpan="4"
                 Grid.RowSpan="9"/>
 
         <TextBlock Text="Tortuga's" 
@@ -50,14 +50,12 @@
                    FontSize="30"
                    Margin="0 0 0 0"/>
 
-
         <ListView x:Name="lvTables"
                   Grid.Row="2"
                   Grid.Column="1"
                   Grid.ColumnSpan="2"
                   Grid.RowSpan="6"
-                  BorderBrush="{x:Null}"
-                  >
+                  BorderBrush="{x:Null}">
 
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -67,11 +65,9 @@
 
             <ListView.ItemTemplate>
                 <DataTemplate>
-
                     <Grid Width="60"
                           Height="60"
-                          MouseDown="Grid_MouseDown"
-                          >
+                          MouseDown="Grid_MouseDown">
 
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
@@ -99,15 +95,9 @@
                                    FontSize="40"
                                    Foreground="White"
                                    />
-
-
-                       
-
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
-
         </ListView>
-
     </Grid>
 </Page>

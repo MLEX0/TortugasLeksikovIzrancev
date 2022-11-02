@@ -25,7 +25,6 @@ namespace TartugaLeksikovIzrancev.Pages
         public BasketPage()
         {
             InitializeComponent();
-            
             Refresh();
         }
 
@@ -61,10 +60,9 @@ namespace TartugaLeksikovIzrancev.Pages
         {
             PageController.MainFrame.Navigate(new MenuPage(GlobalInformation.IDTable));
         }
-
         private void btnGoBasket_Click(object sender, RoutedEventArgs e)
         {
-            if (GlobalInformation.ListOfOrder.Count==0)
+            if (GlobalInformation.ListOfOrder.Count == 0)
             {
                 MessageBox.Show("Сначала выберите блюда");
                 return;
@@ -168,7 +166,6 @@ namespace TartugaLeksikovIzrancev.Pages
                 GlobalInformation.Promocode.Discount = 0;
                 Refresh();
             }
-          
         }
     }
 }

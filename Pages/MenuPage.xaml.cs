@@ -111,7 +111,6 @@ namespace TartugaLeksikovIzrancev.Pages
         private void lvCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Filter();
-
         }
     }
 }

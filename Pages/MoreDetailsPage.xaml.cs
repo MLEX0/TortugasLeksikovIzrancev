@@ -22,7 +22,7 @@ namespace TartugaLeksikovIzrancev.Pages
     /// </summary>
     public partial class MoreDetailsPage : Page
     {
-        EF.Product prod;
+        private EF.Product prod;
         public MoreDetailsPage(EF.Product product)
         {
             InitializeComponent();
@@ -38,7 +38,6 @@ namespace TartugaLeksikovIzrancev.Pages
                 tbWeight.Text = "Вес " + Convert.ToString(product.Weight) + " Г.";
             }
             prod = product;
-
             
             //проверка на наличие ссылки на изображение
             if (product.MainImage != null)
