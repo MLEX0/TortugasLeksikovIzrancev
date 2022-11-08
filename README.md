@@ -47,3 +47,7 @@
 <h1>Структура Проекта</h1>
 
 ![image](https://user-images.githubusercontent.com/80753761/197179130-fd9a6511-eda6-4c50-8961-564235386c87.png) <br>
+
+
+User Case <br>
+![image](https://user-images.githubusercontent.com/80753761/200546028-7150d2f9-a1b5-4837-be5e-c53cc200d76c.png)
