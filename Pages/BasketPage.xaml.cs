@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.TextFormatting;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TartugaLeksikovIzrancev.Classes;
@@ -37,7 +38,6 @@ namespace TartugaLeksikovIzrancev.Pages
                 btnPromocode.Content = "X";
                 tbPromocode.Text = GlobalInformation.Promocode.Code;
             }
-
             lvOrder.ItemsSource = null;
             tbPrice.Text = "Итоговая стоимость: " + totalPrice();
             tbTable.Text = "Ваш столик: " + GlobalInformation.IDTable.IDTable;
@@ -47,13 +47,30 @@ namespace TartugaLeksikovIzrancev.Pages
         //Метод Высчитывающий итоговую стоимость заказа
         public string totalPrice()
         {
+
             decimal totalCost = 0;
             foreach (EF.Product prod in GlobalInformation.ListOfOrder)
             {
                 totalCost += prod.Cost;
             }
-            totalCost = totalCost - (totalCost * Convert.ToDecimal(GlobalInformation.Promocode.Discount));
 
+            // метод для акции "Белая суббота"
+            if ((DateTime.Now.Day == 29 || DateTime.Now.Day == 30 || DateTime.Now.Day == 31) && DateTime.Now.DayOfWeek.ToString() == "Saturday")
+            {
+                totalCost = totalCost - (totalCost * Convert.ToDecimal(0.11));
+                tbPromocode.Visibility = Visibility.Hidden;
+                btnPromocode.Visibility = Visibility.Hidden;
+                PromocodeTittle.Text ="Акция \'Белая Суббота\'!          Скидка на всё 11%"; 
+                PromocodeTittle.Foreground = Brushes.Red;
+            }
+            else
+            {
+                tbPromocode.Visibility = Visibility.Visible;
+                btnPromocode.Visibility = Visibility.Visible;
+                PromocodeTittle.Text = "Промокод";
+                PromocodeTittle.Foreground = Brushes.Black;
+                totalCost = totalCost - (totalCost * Convert.ToDecimal(GlobalInformation.Promocode.Discount));
+            }
             return Convert.ToString(totalCost);
         }
         private void btnBack_Click(object sender, RoutedEventArgs e)
@@ -87,7 +104,6 @@ namespace TartugaLeksikovIzrancev.Pages
                         order.IsCashless = false;
                     }
                     order.IDStatus = 1;
-
                     AppData.Context.Order.Add(order);
                     AppData.Context.SaveChanges();
                     AppData.updateAppData();
@@ -102,7 +118,6 @@ namespace TartugaLeksikovIzrancev.Pages
                         orderProduct.IDOrder = currentOrder.IDOrder;
                         orderProduct.IDProduct = prod.IDProduct;
                         orderProduct.Count = prod.OrderProdCount;
-
                         AppData.Context.OrderProduct.Add(orderProduct);
                         AppData.Context.SaveChanges();
                     }
