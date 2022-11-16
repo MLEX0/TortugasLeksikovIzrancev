@@ -31,7 +31,6 @@ C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\Pages\MoreDetailsP
 C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\Pages\MoreDetailsPage.baml
 C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\Windows\MenuProdTemplate.g.cs
 C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\Windows\MenuProdTemplate.baml
-C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\TortugaLeksikovIzrancev.csproj.AssemblyReference.cache
 C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\Windows\CategoryTemplate.g.cs
 C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\Windows\CategoryTemplate.baml
 C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\bin\Debug\runtimes\win-x86\native\WebView2Loader.dll
@@ -44,3 +43,4 @@ C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\bin\Debug\Microsoft.Web.WebV
 C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\bin\Debug\Microsoft.Web.WebView2.WinForms.xml
 C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\bin\Debug\Microsoft.Web.WebView2.Wpf.xml
 C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
+C:\Users\IMac2\source\repos\TartugaLeksikovIzrancev\obj\Debug\TortugaLeksikovIzrancev.csproj.AssemblyReference.cache

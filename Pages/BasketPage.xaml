@@ -30,20 +30,20 @@
 
         </Image>
 
-
-        <WrapPanel 
-                   HorizontalAlignment="Center"
+        
+        <WrapPanel HorizontalAlignment="Center"
                    VerticalAlignment="Center">
-           
             <Button x:Name="btnBack" 
                     Content="К меню"
                     FontSize="20"
                     Margin="10 0" 
                     Click="btnBack_Click"
+                   
                     Background="DarkGray"
                      Foreground="White">
 
-            </Button>
+                </Button>
+
         </WrapPanel>
         <TextBlock Grid.Column="1"
                    Grid.ColumnSpan="2"
@@ -189,7 +189,7 @@
                 
             </RadioButton>
             <RadioButton Name="rbCard"
-                         Content="Картой"
+                         Content="Картой"    
                          FontSize="18">
                 
             </RadioButton>
@@ -235,9 +235,10 @@
                 Grid.Column="3"
                 Width="110"
                 Height="40"
-                    Background="DarkGray"
-                 Foreground="White"
-                Content="Оформить заказ" Click="btnGoBasket_Click" >
+                Background="DarkGray"
+                Foreground="White"
+                Content="Оформить заказ" 
+                Click="btnGoBasket_Click" >
 
         </Button>
     </Grid>

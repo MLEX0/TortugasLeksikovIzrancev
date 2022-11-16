@@ -82,6 +82,7 @@
     <Compile Include="Classes\AppData.cs" />
     <Compile Include="Classes\GlobalInformation.cs" />
     <Compile Include="Classes\PageController.cs" />
+    <Compile Include="Classes\TotalOrderCost.cs" />
     <Compile Include="EF\Category.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

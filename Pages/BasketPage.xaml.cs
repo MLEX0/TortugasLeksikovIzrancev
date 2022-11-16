@@ -29,7 +29,7 @@ namespace TartugaLeksikovIzrancev.Pages
             Refresh();
         }
 
-        //Метод для обновления ListView 
+        //Метод для обновления ListView. d\(Ow<)
         public void Refresh()
         {
             if (GlobalInformation.Promocode.Discount != 0)
@@ -44,32 +44,31 @@ namespace TartugaLeksikovIzrancev.Pages
             lvOrder.ItemsSource = GlobalInformation.ListOfOrder.Distinct().OrderBy(i=>i.IDProduct);
         }
 
-        //Метод Высчитывающий итоговую стоимость заказа
+        //Метод Высчитывающий итоговую стоимость заказа.
         public string totalPrice()
         {
-
             decimal totalCost = 0;
             foreach (EF.Product prod in GlobalInformation.ListOfOrder)
             {
                 totalCost += prod.Cost;
             }
 
-            // метод для акции "Белая суббота"
+            // акция "Белая суббота".
             if ((DateTime.Now.Day == 29 || DateTime.Now.Day == 30 || DateTime.Now.Day == 31) && DateTime.Now.DayOfWeek.ToString() == "Saturday")
             {
                 totalCost = totalCost - (totalCost * Convert.ToDecimal(0.11));
                 tbPromocode.Visibility = Visibility.Hidden;
                 btnPromocode.Visibility = Visibility.Hidden;
-                PromocodeTittle.Text ="Акция \'Белая Суббота\'!          Скидка на всё 11%"; 
+                PromocodeTittle.Text ="Акция \'Белая Суббота\'!\nСкидка на всё 11%";
                 PromocodeTittle.Foreground = Brushes.Red;
             }
             else
             {
+                totalCost = totalCost - (totalCost * Convert.ToDecimal(GlobalInformation.Promocode.Discount));
                 tbPromocode.Visibility = Visibility.Visible;
                 btnPromocode.Visibility = Visibility.Visible;
                 PromocodeTittle.Text = "Промокод";
                 PromocodeTittle.Foreground = Brushes.Black;
-                totalCost = totalCost - (totalCost * Convert.ToDecimal(GlobalInformation.Promocode.Discount));
             }
             return Convert.ToString(totalCost);
         }
@@ -88,7 +87,7 @@ namespace TartugaLeksikovIzrancev.Pages
             {
                 try
                 {
-                    //Добавление заказа в базу
+                    //Добавление заказа в базу.
                     EF.Order order = new EF.Order();
                     order.TotalCost = Convert.ToDecimal(totalPrice());
                     order.IDRestourantTable = Convert.ToInt32(GlobalInformation.IDTable.IDTable);
@@ -108,10 +107,10 @@ namespace TartugaLeksikovIzrancev.Pages
                     AppData.Context.SaveChanges();
                     AppData.updateAppData();
 
-                    //Вытаскивание текущего заказа
+                    //Получение текущего заказа.
                     var currentOrder = AppData.Context.Order.OrderByDescending(i => i.OrderTime).FirstOrDefault();
 
-                    //Добавление продуктов заказа в базу
+                    //Добавление продуктов заказа в базу.
                     foreach (EF.Product prod in GlobalInformation.ListOfOrder.Distinct())
                     {
                         EF.OrderProduct orderProduct = new EF.OrderProduct();
@@ -123,7 +122,7 @@ namespace TartugaLeksikovIzrancev.Pages
                     }
                     MessageBox.Show("Заказ сделан, ожидайте");
 
-                    //Обнуление данных для сброса
+                    //Обнуление данных для сброса.
                     GlobalInformation.IDTable = null;
                     GlobalInformation.ListOfOrder = new List<EF.Product>();
                     GlobalInformation.Promocode = new EF.Promocode();
@@ -136,7 +135,7 @@ namespace TartugaLeksikovIzrancev.Pages
             }
         }
 
-        //Метод Увеличение колличсества товара
+        //Метод Увеличение колличсества товара.
         private void btnPlus_Click(object sender, RoutedEventArgs e)
         {
             EF.Product btn = (sender as Button).DataContext as EF.Product;
@@ -144,7 +143,7 @@ namespace TartugaLeksikovIzrancev.Pages
             Refresh();
         }
 
-        //Метод убавления колличество товара
+        //Метод убавления колличество товара.
         private void btnMinus_Click(object sender, RoutedEventArgs e)
         {
             lvOrder.SelectedItem = (sender as Button).DataContext;
@@ -153,7 +152,7 @@ namespace TartugaLeksikovIzrancev.Pages
             Refresh();
         }
 
-        //Метод для проверки промокода
+        //Метод для проверки промокода.
         private void btnPromocode_Click(object sender, RoutedEventArgs e)
         {
             if (tbPromocode.IsEnabled == true)

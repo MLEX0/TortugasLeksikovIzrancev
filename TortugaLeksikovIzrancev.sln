@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TortugaLeksikovIzrancev", "TortugaLeksikovIzrancev.csproj", "{3E432D5D-FDE4-4AC4-9654-0DAE2C4F8B59}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TortugasLeksikovIzrancev_Test", "..\TortugasLeksikovIzrancev_Test\TortugasLeksikovIzrancev_Test.csproj", "{AE3200E0-4FDD-482C-8C16-89CD467881BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{3E432D5D-FDE4-4AC4-9654-0DAE2C4F8B59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E432D5D-FDE4-4AC4-9654-0DAE2C4F8B59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E432D5D-FDE4-4AC4-9654-0DAE2C4F8B59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE3200E0-4FDD-482C-8C16-89CD467881BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE3200E0-4FDD-482C-8C16-89CD467881BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE3200E0-4FDD-482C-8C16-89CD467881BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE3200E0-4FDD-482C-8C16-89CD467881BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
