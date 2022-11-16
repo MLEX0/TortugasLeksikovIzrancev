@@ -51,3 +51,13 @@
 
 User Case <br>
 ![image](https://user-images.githubusercontent.com/80753761/200546028-7150d2f9-a1b5-4837-be5e-c53cc200d76c.png)
+
+09/11/2022 <br>
+Добавлена "Белая суббота", акция, которая срабатывает каждую 5 субботу месяца и дает скидку в 11% <br>
+Ниже сам метод <br>
+![image](https://user-images.githubusercontent.com/80753761/200850144-ae447ac1-c5ea-4643-a369-c02fa24a3e38.png) <br>
+
+Визуальное отображение <br>
+![image](https://user-images.githubusercontent.com/80753761/200850366-abe9a488-690b-49f3-a7f3-b3551b499f23.png) <br>
+
+
